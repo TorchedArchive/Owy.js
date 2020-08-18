@@ -1,0 +1,32 @@
+{
+  "name": "owy",
+  "version": "0.0.1",
+  "description": "✏️ Simple and sexy looking terminal spinners and progress bars.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luvella/Owy.git"
+  },
+  "keywords": [
+    "cli",
+    "spinner",
+    "terminal",
+    "ansi",
+    "term",
+    "loading",
+    "progress",
+    "progress-bar"
+  ],
+  "author": "Luvella",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Luvella/Owy/issues"
+  },
+  "homepage": "https://github.com/Luvella/Owy#readme",
+  "devDependencies": {
+    "@luvella/eslint-config": "^1.0.2"
+  }
+}
