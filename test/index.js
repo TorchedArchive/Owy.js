@@ -1,5 +1,5 @@
 const owy = require('../lib');
-const spinner = new owy.Spinner({text: 'Checking your vibe', style: 'dots', bi: true});
+const spinner = new owy.Spinner('Checking your vibe');
 
 spinner.start();
 setTimeout(() => spinner.success('You passed the vibe check!'), 4000)
