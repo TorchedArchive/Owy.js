@@ -1,5 +1,5 @@
 const owy = require('../lib');
-const bar = new owy.ProgressBar('Downloading');
+const spinner = new owy.Spinner({text: 'Checking your vibe', style: 'dots', bi: true});
 
-bar.init();
-setInterval(() => bar.next(), 2000)
+spinner.start();
+setTimeout(() => spinner.success('You passed the vibe check!'), 4000)
