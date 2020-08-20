@@ -1,6 +1,9 @@
 # Owy
-✏️ Simple and sexy looking terminal spinners and progress bars.
+> ✏️ Simple and sexy looking terminal spinners and progress bars.
 
+![](https://modeus.is-inside.me/G8jJetlj.gif)  
+
+([Here's the code](test/showcase.js))
 # Install
 `npm i owy`
 
