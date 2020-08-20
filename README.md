@@ -20,7 +20,7 @@ Default: `''`
 Text to print after the spinner
 ### options 
 #### style
-Default: `'dots'`
+Default: `'dots'`  
 Name of one of the [provided styles](lib/styles.js)  
 
 Or an object:
