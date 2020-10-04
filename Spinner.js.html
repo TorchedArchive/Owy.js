@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spinner.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-Owy-OwyProgressBar.html">OwyProgressBar</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html">OwySpinner</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#clear">clear</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#fail">fail</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#info">info</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#next">next</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#start">start</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#stop">stop</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#success">success</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#symbol">symbol</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-Owy-OwySpinner.html#warn">warn</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-Owy.html">Owy</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Spinner.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * ✏️ Simple and sexy looking terminal spinners and progress bars.
+ * @module Owy
+ */
+
+const styles = require('../styles');
+const ansiplace = require('ansiplace');
+
+/**
+ * ✏️ Owy's terminal spinner.
+ */
+class OwySpinner {
+	/**
+	 * Creates a new CLI spinner
+	 * @param {String} text                   Text to use with the spinner
+	 * @param {Object} options                Options to configure the spinner
+	 * @param {String | object} options.style The style/look of the spinner
+	 * @param {String} options.color          The color of the spinner
+	 * @param {Boolean} options.dual          Whether to spawn 2 spinners, at the beginning and end of text
+	 */
+	constructor(text = '', options = {}) {
+		if (typeof text !== 'string') throw new TypeError('text has to be a string.');
+		if (Array.isArray(options) || typeof options !== 'object' &amp;&amp; options !== null) throw new TypeError('options has to be an object.');
+
+		this.options = Object.assign({style: 'dots', color: 'cyan'}, options);
+		if (Array.isArray(this.options.style)) throw new Error('options.style should be an object or string');
+		this.style = typeof this.options.style !== 'object' ? styles[this.options.style] : this.options.style;
+		if (typeof this.style === 'object' &amp;&amp; !this.style.stages) throw new Error('missing array of steps for style');
+		this.text = text;
+		this.color = ansiplace.extras.colors.includes(this.options.color) ? `{${this.options.color}}` : '';
+		this.spin = null;
+		this.dual = this.options.dual;
+		this.pos = 0;
+		this.req = 0;
+	}
+
+	/**
+	 * Starts the spinner
+	 * @param {String} text Text to use with the spinner
+	 * @returns {OwySpinner} The spinner instance
+	 */
+	start(text) {
+		this.req++;
+		if (this.req !== 1) throw new Error('spinner already started');
+		if (text &amp;&amp; typeof text !== 'string') throw new Error('text has to be a string');
+		else if (text) this.text = text;
+		if (!this.style) throw new Error(`could not find style`);
+
+		this.spin = setInterval(() => this.next(), this.style.interval || 60);
+		return this;
+	}
+
+	/**
+	 * Goes to the next frame/step of the spinner
+	 */
+	next() {
+		if (!this.style) throw new Error(`could not find style`);
+
+		const frame = this.style.stages[(this.pos + 1) % this.style.stages.length];
+		const str = ansiplace(`\u001b[${this.text.length + (frame.length * (this.dual ? 2 : 1)) + 2}D${this.color}${frame} {reset}${this.text}${this.dual ? ` ${this.color}${frame}` : ''}`);
+		process.stdout.write(str);
+		this.pos = (this.pos + 1) % this.style.stages.length;
+	}
+
+	/**
+	 * Stops the spinner
+	 * @param {Boolean} clearLine Whether to clear the line
+	 * @returns {OwySpinner} The spinner instance
+	 */
+	stop(clearLine = true) {
+		this.req--;
+		if (this.req !== 0) throw new Error('spinner already stopped');
+
+		this._clear();
+		if (clearLine) this.clear();
+		else process.stdout.write('\n');
+
+		return this;
+	}
+
+	/**
+	 * Stops the spinner and replaces it with "ℹ️"
+	 * @param {String} text Text to use with the symbol
+	 */
+	info(text) {
+		return this.symbol('ℹ️', text);
+	}
+
+	/**
+	 * Stops the spinner and replaces it with "✔️"
+	 * @param {String} text Text to use with the symbol
+	 */
+	success(text) {
+		return this.symbol('✔️', text);
+	}
+
+	/**
+	 * Stops the spinner and replaces it with "⚠️"
+	 * @param {String} text Text to use with the symbol
+	 */
+	warn(text) {
+		return this.symbol('⚠️', text);
+	}
+
+	/**
+	 * Stops the spinner and replaces it with "❌"
+	 * @param {String} text Text to use with the symbol
+	 */
+	fail(text) {
+		return this.symbol('❌', text);
+	}
+
+	/**
+	 * Stops the spinner, clears the line and prints "[sym] [text]"
+	 * @param {String} sym  The symbol/unicode to use 
+	 * @param {String} text Text to use with the symbol
+	 * @returns {OwySpinner} The spinner instance
+	 */
+	symbol(sym, text) {
+		this.req--;
+		if (this.req !== 0) throw new Error('spinner already stopped');
+
+		this._clear();
+		this.clear();
+		process.stdout.cursorTo(0);
+		process.stdout.write(`${sym} ${text || this.text}\n`);
+
+		return this;
+	}
+
+	/**
+	 * Clears the line
+	 */
+	clear() {
+		process.stdout.clearLine();
+	}
+
+	/**
+	 * Clears the spin interval
+	 * @private
+	 */
+	_clear() {
+		clearInterval(this.spin);
+	}
+}
+
+module.exports = OwySpinner;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sun Oct 04 2020 20:48:37 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
