@@ -3,6 +3,8 @@
   "version": "0.2.4",
   "description": "✏️ Simple and sexy looking terminal spinners and progress bars.",
   "main": "lib/index.js",
+  "types": "index.d.ts",
+  "files": ["lib/", "index.d.ts"],
   "scripts": {
     "test": "node test/index.js"
   },
