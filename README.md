@@ -1,45 +1,61 @@
-# Owy
-> ✏️ Simple and sexy looking terminal spinners and progress bars.
+<div align="center">
+	<h1 align="center">Owy</h1>
+	<blockquote align="center">✏️ Simple and sexy looking terminal spinners and progress bars.</blockquote>
+	[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+	<img alt="Preview" src="https://modeus.is-inside.me/G8jJetlj.gif">
+	<br><br>
+	<p>Owy is a small and simple package that prints an elegant spinner/animation or (soon) a progress bar to the terminal.</p>
+</div>
 
-![](https://modeus.is-inside.me/G8jJetlj.gif)  
+# Table of Contents
+- [Install](#install)
+- [Examples](#examples)
+- [Links](#links)
+- [Contributing](#contributing)
 
-([Here's the code](test/showcase.js))
 # Install
-`npm i owy`
-
-# Example
+`npm install owy`
+ 
+# Examples
 ```js
 const owy = require('owy');
-const spinner = new owy.Spinner('Vibing');
+const spinner = new owy.Spinner('Shining', {
+	style: {
+		interval: 60,
+		stages: ['⭐', '🌟']
+	}
+});
+
+spinner.start();
+```
+```js
+const owy = require('owy');
+const spinner = new owy.Spinner('Spinning');
 
 spinner.start();
 ```
 
-# Docs
-## new Spinner(text?, options?)
-Creates a new `OwySpinner` instance  
-### text
-Default: `''`  
-Text to print after the spinner
-### options 
-#### style
-Default: `'dots'`  
-Name of one of the [provided styles](lib/styles.js)  
+# Links
+- Documentation: https://luvella.github.io/Owy
 
-Or an object:
-```js
-{
-    interval: 60,
-    stages: ['⭐', '🌟']
-}
+# Contributing
+If you would like to contribute, be sure to:
+- Lint with our ESLint config
+- Add JSDoc (if adding a new function)  
+
+And make a pull request!  
+
+## Developing
+```sh
+git clone https://github.com/Luvella/Owy
+cd Owy
+npm i
+npm i eslint -g # For linting (if you don't have it installed)
+# After making changes:
+eslint lib/
 ```
-#### color
-Default: `'cyan'`  
-The color of the spinner. Accepts [these values](https://www.npmjs.com/package/ansiplace#colors)
-#### dual
-Default: `false`  
-Whether to add an extra spinner (text will be in between the 2 spinners)
-## OwySpinner.start(text?)
-Stars the spinner, sets `text` if it is provided
-## OwySpinner.stop(clearLine?)
-Stops the spinner and clears the line (unless `clearLine` is false)
+
+If you aren't contributing code you can always open an issue.
+# License
+Owy is licensed under the MIT license.  
+[Read here](LICENSE) for more info.
