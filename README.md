@@ -3,15 +3,15 @@
 	<blockquote align="center">✏️ Simple and sexy looking terminal spinners and progress bars.</blockquote>
 	<p>
 		<img alt="Made With Love" src="https://forthebadge.com/images/badges/built-with-love.svg">
-		<a href="https://github.com/Luvella/Bunnyfetch/blob/master/LICENSE">
-			<img alt="GitHub license" src="https://img.shields.io/github/license/Luvella/Bunnyfetch?style=for-the-badge">
+		<a href="https://github.com/Luvella/Owy/blob/master/LICENSE">
+			<img alt="GitHub license" src="https://img.shields.io/github/license/Luvella/Owy?style=for-the-badge">
 		</a>
-		<a href="https://github.com/Luvella/Bunnyfetch/stargazers">
-			<img alt="GitHub stars" src="https://img.shields.io/github/stars/Luvella/Bunnyfetch?style=for-the-badge">
+		<a href="https://github.com/Luvella/Owy/stargazers">
+			<img alt="GitHub stars" src="https://img.shields.io/github/stars/Luvella/Owy?style=for-the-badge">
 		</a>
 		<br>
 		Owy is a small and simple package that prints an elegant spinner/animation or (soon) a progress bar to the terminal.
-		<br>
+		<br><br>
 		<img alt="Preview" src="https://modeus.is-inside.me/G8jJetlj.gif">
 	</p>
 </div>
