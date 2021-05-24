@@ -45,7 +45,7 @@ spinner.start();
 ```
 
 # Links
-- Documentation: https://luvella.github.io/Owy
+- Documentation: https://mewyuna.github.io/Owy.js/ 
 
 # Contributing
 If you would like to contribute, be sure to:
