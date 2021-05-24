@@ -3,11 +3,11 @@
 	<blockquote align="center">✏️ Simple and sexy looking terminal spinners and progress bars.</blockquote>
 	<p>
 		<img alt="Made With Love" src="https://forthebadge.com/images/badges/built-with-love.svg">
-		<a href="https://github.com/Luvella/Owy/blob/master/LICENSE">
-			<img alt="GitHub license" src="https://img.shields.io/github/license/Luvella/Owy?style=for-the-badge">
+		<a href="https://github.com/Mewyuna/Owy/blob/master/LICENSE">
+			<img alt="GitHub license" src="https://img.shields.io/github/license/Mewyuna/Owy?style=for-the-badge">
 		</a>
-		<a href="https://github.com/Luvella/Owy/stargazers">
-			<img alt="GitHub stars" src="https://img.shields.io/github/stars/Luvella/Owy?style=for-the-badge">
+		<a href="https://github.com/Mewyuna/Owy/stargazers">
+			<img alt="GitHub stars" src="https://img.shields.io/github/stars/Mewyuna/Owy?style=for-the-badge">
 		</a>
 		<br>
 		Owy is a small and simple package that prints an elegant spinner/animation or (soon) a progress bar to the terminal.
@@ -56,7 +56,7 @@ And make a pull request!
 
 ## Developing
 ```sh
-git clone https://github.com/Luvella/Owy
+git clone https://github.com/Mewyuna/Owy
 cd Owy
 npm i
 npm i eslint -g # For linting (if you don't have it installed)
