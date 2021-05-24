@@ -1,6 +1,6 @@
 {
   "name": "owy",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "✏️ Simple and sexy looking terminal spinners and progress bars.",
   "main": "lib/index.js",
   "types": "index.d.ts",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Luvella/Owy.git"
+    "url": "git+https://github.com/Mewyuna/Owy.git"
   },
   "keywords": [
     "cli",
@@ -25,12 +25,12 @@
     "progress",
     "progress-bar"
   ],
-  "author": "Luvella",
+  "author": "Mewyuna",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Luvella/Owy/issues"
+    "url": "https://github.com/Mewyuna/Owy/issues"
   },
-  "homepage": "https://github.com/Luvella/Owy#readme",
+  "homepage": "https://github.com/Mewyuna/Owy#readme",
   "devDependencies": {
     "@luvella/eslint-config": "^1.0.2"
   },
