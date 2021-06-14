@@ -3,11 +3,11 @@
 	<blockquote align="center">✏️ Simple and sexy looking terminal spinners and progress bars.</blockquote>
 	<p>
 		<img alt="Made With Love" src="https://forthebadge.com/images/badges/built-with-love.svg">
-		<a href="https://github.com/Mewyuna/Owy.js/blob/master/LICENSE">
-			<img alt="GitHub license" src="https://img.shields.io/github/license/Mewyuna/Owy.js?style=for-the-badge">
+		<a href="https://github.com/Rosettea/Owy.js/blob/master/LICENSE">
+			<img alt="GitHub license" src="https://img.shields.io/github/license/Rosettea/Owy.js?style=for-the-badge">
 		</a>
-		<a href="https://github.com/Mewyuna.js/Owy.js/stargazers">
-			<img alt="GitHub stars" src="https://img.shields.io/github/stars/Mewyuna/Owy.js?style=for-the-badge">
+		<a href="https://github.com/Rosettea.js/Owy.js/stargazers">
+			<img alt="GitHub stars" src="https://img.shields.io/github/stars/Rosettea/Owy.js?style=for-the-badge">
 		</a>
 		<br>
 		Owy is a small and simple package that prints an elegant spinner/animation or (soon) a progress bar to the terminal.
@@ -45,7 +45,7 @@ spinner.start();
 ```
 
 # Links
-- Documentation: https://mewyuna.github.io/Owy.js/ 
+- Documentation: https://rosettea.github.io/Owy.js/ 
 
 # Contributing
 If you would like to contribute, be sure to:
@@ -56,7 +56,7 @@ And make a pull request!
 
 ## Developing
 ```sh
-git clone https://github.com/Mewyuna/Owy.js
+git clone https://github.com/Rosettea/Owy.js
 cd Owy
 npm i
 npm i eslint -g # For linting (if you don't have it installed)
